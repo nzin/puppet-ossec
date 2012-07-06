@@ -89,6 +89,7 @@
     <ignore>/etc/cups/certs</ignore>
     <ignore>/etc/dumpdates</ignore>
     <ignore>/etc/svc/volatile</ignore>
+    <ignore>/etc/prelink.cache</ignore>
 
     <!-- Windows files to ignore -->
     <ignore>C:\WINDOWS/System32/LogFiles</ignore>
@@ -155,20 +156,25 @@
 
   <localfile>
     <log_format>syslog</log_format>
+    <location>/var/log/maillog</location>
+  </localfile>
+
+  <localfile>
+    <log_format>syslog</log_format>
     <location>/var/log/dpkg.log</location>
   </localfile>
 
-    <localfile>
-		<log_format>apache</log_format>
-		<location>/var/log/remote/apache2.access.log</location>
-	</localfile>
-	
-	<localfile>
-		<log_format>apache</log_format>
-		<location>/var/log/remote/apache2.error.log</location>
-	</localfile>
+  <localfile>
+    <log_format>apache</log_format>
+    <location>/var/log/apache2/access.log</location>
+  </localfile>
 
-	<localfile> 
-	 <log_format>syslog</log_format> 
-	 <location>/var/ossec/logs/active-responses.log</location> 
-	</localfile> 
+  <localfile>
+    <log_format>apache</log_format>
+    <location>/var/log/apache2/error.log</location>
+  </localfile>
+
+  <localfile> 
+    <log_format>syslog</log_format> 
+    <location>/var/ossec/logs/active-responses.log</location> 
+  </localfile> 

@@ -52,6 +52,8 @@ function ossec::activeresponse
 - $ar_rules_id     (default: [])     : list of rules id
 - $ar_timeout      (default: 300)    : usually active reponse blocks for a certain amount of time.
 
+function ossec::addlog
+- $logfile   : path of the log file to monitor
 
 
 CLIENT
@@ -69,6 +71,7 @@ SERVER
     }
     ossec::command { 'firewallblock': command_name => 'firewall-drop', command_executable => 'firewall-drop.sh', command_expect => 'srcip' }
     ossec::activeresponse { 'blockWebattack': command_name => 'firewall-drop', ar_level => 9, ar_rules_id => [31153,31151] }
+    ossec::activeresponse { 'blocksshbruteforce': command_name => 'firewall-drop', ar_level => 9, ar_rules_id => [5712] }
   }
 
 CLIENT
